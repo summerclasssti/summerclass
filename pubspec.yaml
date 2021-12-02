@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.4
   get: ^4.5.1
+  vertical_card_pager: ^1.5.0
 
 dev_dependencies:
   flutter_test:
