@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Model App",
-      initialRoute: Routes.SPLASH,
+      initialRoute: Routes.HOME,
       getPages: AppPages.pages,
     );
   }
