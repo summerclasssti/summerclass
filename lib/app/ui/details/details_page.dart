@@ -29,8 +29,7 @@ class DetailsPage extends StatelessWidget {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [Color(0xff000913), Colors.transparent],
-                          ).createShader(Rect.fromLTRB(
-                              0, 0, rect.width, rect.height));
+                          ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
                         },
                         blendMode: BlendMode.dstIn,
                         child: Image.network(
