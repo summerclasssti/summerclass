@@ -7,6 +7,13 @@ class HomeController extends GetxController {
   final _obj = ''.obs;
   set obj(value) => _obj.value = value;
   get obj => _obj.value;
+  bool? isLoading;
+
+  @override
+  void onInit() {
+    fetchData();
+    super.onInit();
+  }
 
   final List<String> titles = [
     "Tropa de Elite",
@@ -55,5 +62,15 @@ class HomeController extends GetxController {
 
   void onSelectedItem(int index) {
     Get.toNamed(Routes.DETAILS, arguments: {"index":index, "img":imgUrlList[index]});
+  }
+
+  void fetchData() {
+    isLoading = true;
+    update();
+    //call repo to fetch data.
+    Future.delayed(const Duration(seconds: 1)).then((value) {
+      isLoading = false;
+      update();
+    });
   }
 }
