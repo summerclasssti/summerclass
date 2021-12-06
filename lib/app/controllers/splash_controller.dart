@@ -1,9 +1,28 @@
 import 'package:get/get.dart';
-import 'package:meta/meta.dart';
+import 'package:summer_class_app/app/routes/app_pages.dart';
 
 class SplashController extends GetxController {
+  double animatedMargin = 0.0;
+  bool visibleStrip = false;
 
-  final _obj = ''.obs;
-  set obj(value) => _obj.value = value;
-  get obj => _obj.value;
+  @override
+  void onReady() {
+    visibleStrip = true;
+    animatedMargin = 80.0;
+    update();
+  }
+
+  void onEnd() {
+    Future.delayed(
+        const Duration(milliseconds: 300), () => Get.offAllNamed(Routes.HOME));
+  }
+
+  double findLogoSize() {
+    return Get.height * 0.3;
+  }
+
+  double findIconSize() {
+    double padding = 2.0;
+    return ((Get.height - findLogoSize() - padding * 2 * 10) / 10);
+  }
 }
