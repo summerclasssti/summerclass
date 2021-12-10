@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:summer_class_app/app/data/model/movie_model.dart';
 
-const baseUrl = 'http://gerador-nomes.herokuapp.com/nomes/10';
+const baseUrl = 'https://script.google.com/macros/s/AKfycbwpshKDbQ2U0czeq9cUGjObtJvUTBjMqt8iW-dKYV8bqWQQB-RDArNEsdCkMjI6rR2X/exec';
 
 class MovieApiClient {
   final http.Client? httpClient;
@@ -18,10 +18,36 @@ class MovieApiClient {
     try {
       final response = await httpClient!.get(Uri.parse(baseUrl));
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-        return jsonResponse['data']
-            .map((json) => MovieModel.fromJson(json))
-            .toList();
+
+        print("Sem erro do get");
+
+        var jsonResponse = jsonDecode(response.body);
+
+        List<MovieModel> movieList = [];
+
+          for (var jresp in jsonResponse){
+
+            print("movie info ${jresp}");
+
+            MovieModel movieModel = MovieModel();
+            movieModel.id = int.parse(jresp["id"]);
+            movieModel.titulo = jresp["titulo"]??"";
+            movieModel.sinopse = jresp["sinopse"]??"";
+            movieModel.img = jresp["img"]??"";
+            movieModel.diretor = jresp["diretor"]??"";
+
+            try {
+              movieList.add(movieModel);
+            } catch (e) {
+              print("erro ao adicionar filme na lista");
+            }
+
+            print("Adicionados o filme ${movieList}");
+
+          }
+
+          return movieList;
+
       } else {
         print('Error -getAll');
       }

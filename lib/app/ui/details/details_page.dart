@@ -47,7 +47,7 @@ class DetailsPage extends StatelessWidget {
                   children: [
                     Text(Get
                         .find<HomeController>()
-                        .titles[Get.arguments["index"]], style: const TextStyle(
+                        .titles[Get.arguments["index"]]!, style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 22),),
