@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:summer_class_app/app/controllers/details_controller.dart';
-import 'package:summer_class_app/app/controllers/home_controller.dart';
-
+import 'package:summer_class_app/app/data/model/movie_model.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -10,7 +9,8 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //debugPrint(Get.find<HomeController>().titles[Get.arguments["index"]]);
+    MovieModel movieInfo = Get.arguments["movie_info"];
+    int heroTag = Get.arguments["tag"];
     return Scaffold(
       backgroundColor: const Color(0xff000913),
       appBar: AppBar(title: const Text('Sobre o Filme'), centerTitle: true,),
@@ -22,7 +22,7 @@ class DetailsPage extends StatelessWidget {
                 Stack(
                   children: [
                     Hero(
-                      tag: Get.arguments["index"],
+                      tag: heroTag,
                       child: ShaderMask(
                         shaderCallback: (rect) {
                           return const LinearGradient(
@@ -33,7 +33,7 @@ class DetailsPage extends StatelessWidget {
                         },
                         blendMode: BlendMode.dstIn,
                         child: Image.network(
-                          Get.arguments["img"],
+                          movieInfo.img,
                           fit: BoxFit.fitWidth,
                           width: double.infinity,
                         ),
@@ -45,9 +45,7 @@ class DetailsPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(Get
-                        .find<HomeController>()
-                        .titles[Get.arguments["index"]]!, style: const TextStyle(
+                    Text(movieInfo.titulo, style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 22),),
@@ -55,20 +53,19 @@ class DetailsPage extends StatelessWidget {
                       onPressed: _.onPressedLikeBtn,
                       icon: GetX<DetailsController>(
                         builder: (_) {
-                        return Icon(_.likedMovie ? Icons.favorite : Icons
-                            .favorite_border);
+                        return Icon(_.likedMovie ? Icons.favorite : Icons.favorite_border);
                       },
                     ), color: Colors.red,)
                   ],
                 ),
-                const Text("Movie Director", style: TextStyle(
+                Text(movieInfo.diretor, style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w100,
                     fontSize: 12)),
                 const SizedBox(height: 20,),
-                const Text(
-                    "Movie info here. THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example THis is a big Text example",
-                    style: TextStyle(color: Colors.white,
+                Text(
+                    movieInfo.sinopse,
+                    style: const TextStyle(color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16)
                 )
