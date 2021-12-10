@@ -11,9 +11,8 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black87,
-      appBar: AppBar(title: const Text('Filmes nacionais'), centerTitle: true, actions: [IconButton(onPressed: controller.fetchData, icon: const Icon(Icons.refresh))],),
+      appBar: AppBar(title: const Text('Filmes nacionais'), centerTitle: true, actions: [IconButton(onPressed: controller.reloadData, icon: const Icon(Icons.refresh))],),
       body: GetBuilder<HomeController>(
-          //init: HomeController(),
           builder: (_) {
             return controller.isLoading! ? const Center(child: CircularProgressIndicator()) :
             VerticalCardPager(

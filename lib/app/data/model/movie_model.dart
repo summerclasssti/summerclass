@@ -1,32 +1,11 @@
-// class MovieModel {
-//
-//   String? title;
-//   String? director;
-//   String? synopsis;
-//   String? img;
-//
-//   MovieModel({ this.title, this.director, this.synopsis, this.img });
-//
-//   MovieModel.fromJson(Map<String, dynamic> json){
-//       title = json['id'];
-//       director = json['name'];
-//       synopsis = json['synopsis'];
-//       img = json['img'];
-//   }
-//
-//   Map<String, dynamic> toJson() => {'id':title, 'director':director, 'synopsis':synopsis, 'img':img };
-// }
-
-//JSON para capturar dados da planilha
-
 class MovieModel {
-  int? id;
-  String? titulo;
-  String? sinopse;
-  String? img;
-  String? diretor;
+  int id = 0;
+  String titulo = "";
+  String sinopse = "";
+  String img = "";
+  String diretor = "";
 
-  MovieModel({this.id, this.titulo, this.sinopse, this.img});
+  MovieModel();
 
   MovieModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

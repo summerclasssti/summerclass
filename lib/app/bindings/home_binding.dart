@@ -9,6 +9,5 @@ class HomeBinding extends Bindings{
   @override
   void dependencies() {
     Get.put(HomeController(movieRepository: MovieRepository(apiClient: MovieApiClient(httpClient:http.Client()))));
-
   }
 }
