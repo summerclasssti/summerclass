@@ -22,7 +22,7 @@ class HomeController extends GetxController {
   List<String?> imgUrl = [];
 
   void onSelectedItem(int index) {
-    Get.toNamed(Routes.DETAILS, arguments: {"movie_info":movieList[index], "tag": index});
+    Get.toNamed(Routes.DETAILS, arguments: {"movie_info":movieList[index], "tag": index+1});
   }
 
   void fetchData() {
