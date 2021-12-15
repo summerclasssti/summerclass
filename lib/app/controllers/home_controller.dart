@@ -6,7 +6,7 @@ import 'package:summer_class_app/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
 
-  bool? isLoading = true;
+  bool isLoading = true;
   List<MovieModel> movieList = [];
   final MovieRepository? movieRepository;
   HomeController({@required this.movieRepository}) : assert(movieRepository != null);
@@ -17,9 +17,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  List<String?> titles = [];
   List<Widget> images = [];
-  List<String?> imgUrl = [];
 
   void onSelectedItem(int index) {
     Get.toNamed(Routes.DETAILS, arguments: {"movie_info":movieList[index], "tag": index+1});
@@ -37,8 +35,6 @@ class HomeController extends GetxController {
   void fillMovieInfo(List<MovieModel> movieList) {
     int i = 1;
     for(MovieModel movie in movieList ){
-      titles.add(movie.titulo);
-      imgUrl.add(movie.img);
       images.add(
         Hero(
               tag: i,
@@ -52,7 +48,6 @@ class HomeController extends GetxController {
             ),);
       i++;
 
-
     }
 
   }
@@ -60,9 +55,7 @@ class HomeController extends GetxController {
   void reloadData() {
     isLoading = true;
     update();
-    titles = [];
     images = [];
-    imgUrl = [];
     fetchData();
   }
 }
