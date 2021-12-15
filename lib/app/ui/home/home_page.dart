@@ -14,7 +14,7 @@ class HomePage extends GetView<HomeController> {
       appBar: AppBar(title: const Text('Filmes nacionais'), centerTitle: true, actions: [IconButton(onPressed: controller.reloadData, icon: const Icon(Icons.refresh))],),
       body: GetBuilder<HomeController>(
           builder: (_) {
-            return controller.isLoading! ? const Center(child: CircularProgressIndicator()) :
+            return controller.isLoading ? const Center(child: CircularProgressIndicator()) :
             VerticalCardPager(
               initialPage: 1,
               titles: const <String>["","","",""],
