@@ -75,7 +75,6 @@ class SplashPage extends StatelessWidget {
                       padding: const EdgeInsets.all(22.0),
                       child: Image.asset(
                         'assets/um_summerclass.png',
-                        // height: 80.0,
                         alignment: Alignment.center,
                         fit: BoxFit.fitHeight,
                       ),
