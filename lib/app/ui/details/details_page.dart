@@ -13,7 +13,7 @@ class DetailsPage extends StatelessWidget {
     int heroTag = Get.arguments["tag"];
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(title: const Text('Sobre o Filme'), centerTitle: true,),
+      appBar: AppBar(title: const Text('Sobre o Filme'), centerTitle: true, automaticallyImplyLeading: true,),
       body: GetBuilder<DetailsController>(
           init: DetailsController(),
           builder: (_) {

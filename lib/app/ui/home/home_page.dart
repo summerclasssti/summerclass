@@ -10,7 +10,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.black,
       appBar: AppBar(title: const Text('Filmes nacionais'), centerTitle: true, actions: [IconButton(onPressed: controller.reloadData, icon: const Icon(Icons.refresh))],),
       body: GetBuilder<HomeController>(
           builder: (_) {
