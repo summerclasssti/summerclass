@@ -24,10 +24,12 @@ class HomeController extends GetxController {
   //Lista de imagens utilizada no VerticalCardPager
   List<Widget> images = [];
 
+  //Callback executado quando há clique num filme. Index é o inteiro referente ao filme na lista.
   void onSelectedItem(int index) {
     Get.toNamed(Routes.DETAILS, arguments: {"movie_info":movieList[index], "tag": index+1});
   }
 
+  //Função que busca os dados da API
   void fetchData() {
     movieRepository?.getAll().then((value) {
       movieList = value;
@@ -37,6 +39,7 @@ class HomeController extends GetxController {
     });
   }
 
+  //Preenche a lista de Widgets que ficam na HomePage. Recebe uma lista de MovieModel.
   void fillMovieInfo(List<MovieModel> movieList) {
     int i = 1;
     for(MovieModel movie in movieList ){
@@ -57,6 +60,7 @@ class HomeController extends GetxController {
 
   }
 
+  //Recarrega a lista de Widgets chamando o fetchData().
   void reloadData() {
     isLoading = true;
     update();
