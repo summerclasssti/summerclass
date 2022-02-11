@@ -1,16 +1,15 @@
+![alt text](https://github.com/summerclasssti/summerclass/blob/master/assets/um_summerclass.png?raw=true)
+
 # summer_class_app
 
 App base para o UFFMobile Summer Class
 
-## Getting Started
+## Executando o projeto localmente:
 
-This project is a starting point for a Flutter application.
+1. Clonar o projeto com o comando `git clone https://github.com/summerclasssti/summerclass.git`;
 
-A few resources to get you started if this is your first Flutter project:
+2. Navegar para o diretório do projeto executando `cd summerclass`;
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+3. Executar o comando `flutter pub get` no diretório para obter as dependencias do projeto;
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+4. Conectar um dispositivo (físico ou emulador) e executar o comando `flutter run`
